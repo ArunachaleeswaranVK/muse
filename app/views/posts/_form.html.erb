@@ -1,0 +1,24 @@
+<%= form_for @post do |f| %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :link %>
+      <%= f.text_field :link %>
+    </div>
+    <div>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+    <div>
+      <%= f.label :Image %>
+      <%= f.file_field :image , multiple: true%>
+    </div>
+    <div>
+        
+        <%= f.submit %>
+    </div>
+<% end %>    
+    
+    

@@ -1,0 +1,48 @@
+<div id="intro">
+    <% if user_signed_in? %>
+        <h3>Hello <%= current_user.name  %> :) </h3>
+        <br/>
+        <span>
+        What Inspires You ? See what inspires others !
+        </span>
+    <% else %>
+        <span>
+            What Inspires You ? See what inspires others !
+        </span>
+    <% end %>  
+</div>
+  
+<div id="posts">
+   <% @posts.each do |post| %>
+   <div class="post">
+      <div class="post_image">
+          <%= link_to (image_tag post.image.url(:small)) , post %>
+      </div>
+      <div class="post_content">
+        <div class="title">
+            <h2><%= link_to post.title , post %></h2>
+        </div>
+        <div class="data clearfix">
+            <p class="username">Shared By <%= post.user.name %></p>
+            <p class="buttons">
+                <span>
+                    <i class="fa fa-comments-o"></i>
+                     <%= post.comments.count %>
+                </span>
+                <span>
+                    <i class="fa fa-thumbs-o-up"></i>
+                    <%= post.get_upvotes.size %>
+                    
+                </span>
+                <span>
+                    <i class="fa fa-thumbs-o-down"></i>
+                    <%= post.get_downvotes.size %>
+                    
+                </span>
+              </p>
+        </div>
+      </div>
+   </div>
+     <% end %> 
+</div>    
+
